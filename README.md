@@ -1,12 +1,17 @@
 # audo_ml_server
 
+## Running the project
+
+Type the following command in the project folder:
+```
+docker-compose up -d --build
+```
+
+**Note:** will need `Docker` to run this
 
 
-curl -X 'POST' \
-  'http://localhost:4002/audio' \
-  -H 'accept: application/json' \
-  -H 'Content-Type: multipart/form-data' \
-  -F 'file=@country.0.wav;type=application/json'
 
-
-curl -X 'POST' 'localhost:4002/audio' -F 'file=@country.0.wav
+## Using the API
+Check the `Postman` collection exported into the `docs` folder. 
+Import the `json` file into `Postman` and run the API. You may 
+try selecting different audio files in the form data tab.
