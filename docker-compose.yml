@@ -1,0 +1,12 @@
+version: "3.3"
+
+services:
+  server:
+    container_name: server
+    build: backend/server/
+    command: sh ./docker-entrypoint.sh
+    restart: always
+    ports:
+      - 4002:4002
+    environment:
+      APP_PORT: 4002
