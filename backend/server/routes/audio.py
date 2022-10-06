@@ -13,7 +13,7 @@ router = APIRouter(prefix="/audio", tags=["audio"])
 @router.get("/")
 def read_root():
     """
-    Testing this shit
+    Testing this route
     """
     return {"Hello": "World"}
 

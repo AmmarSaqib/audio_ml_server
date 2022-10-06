@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+	
+	<!-- <form id = "form">
+		<input type = "file" name ="file" id="file" >
+		<input type="submit">
+		<input type="text" name="text1" value="foo" />
+		<output id ="output"></output>
+	</form> -->
+
+
+   <!-- <input type="file" name="file" id="file">
+   <button onclick="doupload()" name="submit">Upload File</button> -->
+
+   <form id="formElem">
+	<!-- <input type="text" name="firstName" value="John"> -->
+	Audio: <input type="file" name="file">
+	<input type="submit">
+  </form>
+
+<script>
+
+formElem.onsubmit = async (e) => {
+    e.preventDefault();
+    let response = await fetch('http://34.132.190.115:4002/audio/get_prediction', {
+    // let response = await fetch('http://localhost:4002/audio', {
+      // mode: 'no-cors',
+      headers: { 
+        'Allow-Control-Allow-Origin':'*',
+        // 'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE',
+        // 'Access-Control-Allow-Headers': 'Content-Type'
+    },
+      method: 'POST',
+      body: new FormData(formElem)
+    });
+
+
+    let result = await response.json();
+    // console.log("fuc",result);
+
+    alert(result.prediction);
+  };
+
+// const form = document.getElementById('form');
+// const formData = new FormData(form);
+
+// const output = document.getElementById('output');
+// // const {key, value} = formData;
+// // console.log(key)
+// for (const [key, value] of formData) {
+//   console.log(`${key}: ${value}\n`);
+// }
+
+	// const input = document.getElementById("file2")
+
+// const upload = (file) => {
+
+// 	fetch("http://34.132.190.115:4002/audio/get_prediction",
+// 	{
+// 	method: "POST",
+// 	headers: {"Content-Type": "multipart/form-data"}
+// 	},
+// 	body: file}
+// 	).then(
+// 		response => response.json()
+// 	).then(success => console.log(success)
+// 	).catch(
+// 		error => console.log(error)
+// 	);
+// };
+
+// const onSelectFile = () => upload(input.files[0]);
+
+// input.addEventListener("change",onSelectFile,false);
+
+// function doupload(){
+// 	let formData = new FormData();
+//     let data = document.getElementById("file").files[0];
+//     let entry = document.getElementById("file").files[0];
+
+// 	let d= formData.append("file",data);
+//     console.log('doupload',data);
+// 	console.log("form",d);
+//     fetch('http://34.132.190.115:4002/audio/get_prediction',{method:'POST',body:formData}).then(response => response.json).catch(err => console.log("Error",err))
+//     alert('your file has been uploaded');
+// }
+
+</script>
+
+</body>
+</html>
