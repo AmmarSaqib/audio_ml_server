@@ -40,7 +40,7 @@ formElem.onsubmit = async (e) => {
     let result = await response.json();
     // console.log("fuc",result);
 
-    alert(result.prediction);
+    alert("The prediction is: " + result.prediction);
   };
 
 // const form = document.getElementById('form');
