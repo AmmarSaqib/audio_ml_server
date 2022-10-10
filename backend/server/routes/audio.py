@@ -12,13 +12,11 @@ router = APIRouter(prefix="/audio", tags=["audio"])
 
 @router.get("/")
 def read_root():
-    """
-    Testing this shit
-    """
+
     return {"Hello": "World"}
 
 
-@router.post("")
+@router.post("/get_prediction")
 async def get_prediction(file: UploadFile = File(...)):
     """
     The function runs the Model receives the audio file
