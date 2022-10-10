@@ -24,18 +24,23 @@
 						{
 							"key": "file",
 							"type": "file",
-							"src": "/home/ammar/Documents/fakhir_shaheen_freelance/audio_model_deployment/initial_files/fwdallrelevantfiles/hiphop.0.wav"
+							"src": "/home/ammar/Documents/fakhir_shaheen_freelance/audio_model_deployment/initial_files/fwdallrelevantfiles/qawwali.0.wav"
 						}
 					]
 				},
 				"url": {
-					"raw": "localhost:4002/audio",
+					"raw": "http://34.132.190.115:4002/audio/get_prediction",
+					"protocol": "http",
 					"host": [
-						"localhost"
+						"34",
+						"132",
+						"190",
+						"115"
 					],
 					"port": "4002",
 					"path": [
-						"audio"
+						"audio",
+						"get_prediction"
 					],
 					"query": [
 						{

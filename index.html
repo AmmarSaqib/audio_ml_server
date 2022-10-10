@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <form id="formElem">
+      Audio: <input type="file" name="file" />
+      <input type="submit" />
+    </form>
+
+    <script>
+      formElem.onsubmit = async (e) => {
+        e.preventDefault();
+        let response = await fetch(
+          "http://34.132.190.115:4002/audio/get_prediction",
+          {
+            // let response = await fetch('http://localhost:4002/audio', {
+            // mode: 'no-cors',
+            headers: {
+              "Allow-Control-Allow-Origin": "*",
+              // 'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE',
+              // 'Access-Control-Allow-Headers': 'Content-Type'
+            },
+            method: "POST",
+            body: new FormData(formElem),
+          }
+        );
+
+        let result = await response.json();
+        // console.log("fuc",result);
+
+        alert("The prediction is: " + result.prediction);
+      };
+    </script>
+  </body>
+</html>
